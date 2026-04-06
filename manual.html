@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Integración IA - Ecosistema de Alto Rendimiento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import 
+url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        pre, code {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .sidebar-link.active {
+            background-color: #f3f4f6;
+            border-left: 4px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .copy-notification {
+            transform: translateY(100px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .copy-notification.show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="bg-blue-600 p-2 rounded-lg text-white">
+                <i class="fas fa-wolf-pack-white"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">Team Wolf <span class="text-blue-600">AI Core</span></span>
+        </div>
+        <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">
+                <i class="fas fa-circle text-[8px] mr-1"></i> Gemini 1.5 Pro Ready
+            </span>
+            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">
+                <i class="fas fa-terminal mr-1"></i> Claude Code Active
+            </span>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 md:h-[calc(100vh-65px)] md:sticky md:top-[65px] border-r border-gray-200 bg-white p-4 
+overflow-y-auto">
+            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Fases de Implementación</h3>
+            <nav class="space-y-1">
+                <a href="#requisitos" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">1. Requisitos</a>
+                <a href="#entorno" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">2. Entorno Sandbox</a>
+                <a href="#inteligencia" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">3. Inteligencia (Proxy)</a>
+                <a href="#github" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">4. GitHub Bootstrapping</a>
+                <a href="#claude" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">5. Claude Code</a>
+                <a href="#aider" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">6. Open Code (Aider)</a>
+                <a href="#reglas" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">7. Reglas de Ingeniería</a>
+                <a href="#troubleshooting" class="sidebar-link block px-3 py-2 rounded-md text-sm font-medium text-gray-700 
+hover:bg-gray-100">8. Resolución de Errores</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10 max-w-4xl">
+            <header class="mb-12">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Manual de Integración IA</h1>
+                <p class="text-xl text-gray-600 leading-relaxed italic">
+                    "La tecnología al servicio del prójimo es la máxima expresión de la ingeniería."
+                </p>
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <span class="flex items-center text-sm text-gray-500 bg-white border border-gray-200 px-3 py-1 
+rounded-lg">
+                        <i class="fas fa-calendar-alt mr-2"></i> Actualizado: Abril 2026
+                    </span>
+                    <span class="flex items-center text-sm text-gray-500 bg-white border border-gray-200 px-3 py-1 
+rounded-lg">
+                        <i class="fas fa-user-shield mr-2"></i> Ingeniería & Hacking Ético
+                    </span>
+                </div>
+            </header>
+
+            <!-- Phase 1 -->
+            <section id="requisitos" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">1</span>
+                    Requisitos del Sistema
+                </h2>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start">
+                        <i class="fab fa-apple text-gray-400 mt-1 mr-3 text-lg"></i>
+                        <div>
+                            <span class="font-semibold block">macOS</span>
+                            <span class="text-sm text-gray-500">iTerm2 recomendado para mejor renderizado.</span>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start">
+                        <i class="fab fa-python text-blue-500 mt-1 mr-3 text-lg"></i>
+                        <div>
+                            <span class="font-semibold block">Python 3.13</span>
+                            <span class="text-sm text-gray-500">Versión estable para compatibilidad con orjson.</span>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start">
+                        <i class="fab fa-node-js text-green-500 mt-1 mr-3 text-lg"></i>
+                        <div>
+                            <span class="font-semibold block">Node.js 20+</span>
+                            <span class="text-sm text-gray-500">Necesario para Claude Code CLI.</span>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-start">
+                        <i class="fas fa-key text-yellow-500 mt-1 mr-3 text-lg"></i>
+                        <div>
+                            <span class="font-semibold block">API Keys</span>
+                            <span class="text-sm text-gray-500">Google AI Studio & OpenCode.ai.</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Phase 2 -->
+            <section id="entorno" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">2</span>
+                    Fase de Entorno (Sandbox)
+                </h2>
+                <p class="text-gray-600 mb-4">Aislamiento de paquetes para evitar conflictos con el sistema operativo.</p>
+                
+                <div class="bg-slate-900 rounded-xl overflow-hidden relative group mb-6">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
+                        <span class="text-xs text-slate-400 font-medium">Terminal</span>
+                        <button onclick="copyCode(this)" class="text-slate-400 hover:text-white text-xs transition-colors">
+                            <i class="far fa-copy mr-1"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="p-4 text-sm text-slate-300 overflow-x-auto"><code>brew install python@3.13
+brew install gh
+gh auth login</code></pre>
+                </div>
+            </section>
+
+            <!-- Phase 3 -->
+            <section id="inteligencia" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">3</span>
+                    Inteligencia (Proxy Multimodelo)
+                </h2>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-r-lg">
+                    <p class="text-sm text-blue-800 font-medium">
+                        <i class="fas fa-info-circle mr-2"></i> LiteLLM traduce cualquier modelo al formato 
+OpenAI/Anthropic.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 rounded-xl overflow-hidden relative group mb-6">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
+                        <span class="text-xs text-slate-400 font-medium">Venv & LiteLLM</span>
+                        <button onclick="copyCode(this)" class="text-slate-400 hover:text-white text-xs transition-colors">
+                            <i class="far fa-copy mr-1"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="p-4 text-sm text-slate-300 overflow-x-auto"><code>mkdir -p ~/Desktop/Proyectos/[mi-proyecto] 
+&& cd $_
+python3.13 -m venv venv
+source venv/bin/activate
+pip install 'litellm[proxy]'
+
+export GEMINI_API_KEY="TU_LLAVE_AI_STUDIO"
+litellm --model gemini/gemini-1.5-pro --port 4000</code></pre>
+                </div>
+            </section>
+
+            <!-- Phase 4 -->
+            <section id="github" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">4</span>
+                    GitHub Bootstrapping
+                </h2>
+                
+                <div class="bg-slate-900 rounded-xl overflow-hidden relative group">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
+                        <span class="text-xs text-slate-400 font-medium">Git Initializer</span>
+                        <button onclick="copyCode(this)" class="text-slate-400 hover:text-white text-xs transition-colors">
+                            <i class="far fa-copy mr-1"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="p-4 text-sm text-slate-300 overflow-x-auto"><code>export PROJECT_NAME="nombre-del-proyecto"
+mkdir $PROJECT_NAME && cd $PROJECT_NAME
+
+git init
+echo "# $PROJECT_NAME" > README.md
+echo "venv/" > .gitignore
+echo "__pycache__/" >> .gitignore
+
+git add .
+git commit -m "Initial commit: Estructura base"
+gh repo create $PROJECT_NAME --private --source=. --remote=origin --push</code></pre>
+                </div>
+            </section>
+
+            <!-- Phase 5 -->
+            <section id="claude" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">5</span>
+                    Claude Code
+                </h2>
+                <div class="bg-slate-900 rounded-xl overflow-hidden relative group mb-6">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
+                        <span class="text-xs text-slate-400 font-medium">Configuración de Alias</span>
+                        <button onclick="copyCode(this)" class="text-slate-400 hover:text-white text-xs transition-colors">
+                            <i class="far fa-copy mr-1"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="p-4 text-sm text-slate-300 overflow-x-auto"><code>sudo chown -R $(whoami) 
+/usr/local/lib/node_modules
+npm install -g @anthropic-ai/claude-code
+
+# Agregar a ~/.zshrc
+alias wolf-ia='export ANTHROPIC_BASE_URL="http://0.0.0.0:4000" && claude'</code></pre>
+                </div>
+            </section>
+
+            <!-- Phase 6 -->
+            <section id="aider" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">6</span>
+                    Open Code Integration (Aider)
+                </h2>
+                <div class="bg-slate-900 rounded-xl overflow-hidden relative group">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
+                        <span class="text-xs text-slate-400 font-medium">Aider Agent</span>
+                        <button onclick="copyCode(this)" class="text-slate-400 hover:text-white text-xs transition-colors">
+                            <i class="far fa-copy mr-1"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="p-4 text-sm text-slate-300 overflow-x-auto"><code>pip install aider-chat
+export OPENAI_API_BASE="http://0.0.0.0:4000/v1"
+aider --model openai/gemini-1.5-pro</code></pre>
+                </div>
+            </section>
+
+            <!-- Phase 7 -->
+            <section id="reglas" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">7</span>
+                    Reglas de Ingeniería
+                </h2>
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span class="font-medium text-gray-700 underline decoration-blue-200 decoration-4">PEP8 para 
+Python</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span class="font-medium text-gray-700 underline decoration-blue-200 decoration-4">Google Style 
+Docstrings</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span class="font-medium text-gray-700 underline decoration-blue-200 decoration-4">Impacto Social y 
+Deportivo (Team Wolf)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-blue-500 mr-3"></i>
+                        <span class="font-medium text-gray-700 underline decoration-blue-200 decoration-4">Hacking Ético: 
+Validación de entradas</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section id="troubleshooting" class="mb-16 scroll-mt-20">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 flex items-center">
+                    <span class="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 
+text-sm">
+                        <i class="fas fa-exclamation-triangle text-xs"></i>
+                    </span>
+                    Troubleshooting
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-3 font-semibold rounded-tl-lg">Error</th>
+                                <th class="p-3 font-semibold">Causa</th>
+                                <th class="p-3 font-semibold rounded-tr-lg">Solución</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="p-3 font-medium text-red-600">EACCES en npm</td>
+                                <td class="p-3">Permisos de carpeta</td>
+                                <td class="p-3 text-gray-600">Usar <code>chown</code> en /usr/local/lib</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-red-600">ModuleNotFoundError</td>
+                                <td class="p-3">Falta LiteLLM Proxy</td>
+                                <td class="p-3 text-gray-600"><code>pip install 'litellm[proxy]'</code></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium text-red-600">Connection Refused</td>
+                                <td class="p-3">Proxy inactivo</td>
+                                <td class="p-3 text-gray-600">Reinicia la pestaña del servidor LiteLLM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="pt-12 border-t border-gray-200 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 Gus Rivera - Team Wolf AI Ecosystem</p>
+                <p class="mt-2 uppercase tracking-widest text-xs">Soli Deo Gloria</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Copy Notification -->
+    <div id="copy-notification" class="copy-notification fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white 
+px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 z-[100]">
+        <i class="fas fa-check-circle text-green-400"></i>
+        <span>Copiado al portapapeles</span>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const pre = button.parentElement.nextElementSibling;
+            const code = pre.querySelector('code').innerText;
+            
+            const textarea = document.createElement('textarea');
+            textarea.value = code;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showNotification();
+            } catch (err) {
+                console.error('Error al copiar:', err);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+        function showNotification() {
+            const notif = document.getElementById('copy-notification');
+            notif.classList.add('show');
+            setTimeout(() => {
+                notif.classList.remove('show');
+            }, 2500);
+        }
+
+        // Active Link Highlighting on Scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.sidebar-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
